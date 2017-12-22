@@ -109,4 +109,7 @@ export class ListMasterPage {
   changeList() {
     this.navCtrl.push('ListMasterStudentsPage');
   }
+  showStatics() {
+    this.navCtrl.push('StaticsPage');
+  }
 }
