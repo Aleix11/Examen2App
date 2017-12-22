@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ESTUDIANTES</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="changeList()">
+        <ion-icon name="refresh">ASIG</ion-icon>
+      </button>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="getStudentsList()">
+        <ion-icon name="cloud-download"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="getStudentsListSort()">
+        <ion-title>A-Z</ion-title>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems">
+      <button ion-item (click)="openStudentItem(item)">
+        <ion-item>
+          <h2>{{item?.name}}</h2>
+          <h3>{{item?.address}}</h3>
+          <p>{{item.phone?.home}}</p>
+          <p>{{item.phone?.work}}</p>
+          <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+        </ion-item>
+      </button>
+
+      <ion-item-options>
+        <!--<button ion-button color="danger" (click)="deleteItem(item)">
+          {{ 'DELETE_BUTTON' | translate }}
+        </button>-->
+        <button ion-button color="primary" (click)="openStudentItem(item)">
+          {{ 'OPEN_BUTTON' | translate }}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

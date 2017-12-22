@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <ion-item>
+    <ion-label>Buscar por: </ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="name">Nombre</ion-option>
+      <ion-option value="studies">Studies</ion-option>
+      <ion-option value="quadri">Quadri</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-list>
+    <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
+      <h2>{{item.name}}</h2>
+      <p>{{item.studies}}</p>
+      <p>{{item.quadri}}</p>
+      <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+    </button>
+  </ion-list>
+</ion-content>

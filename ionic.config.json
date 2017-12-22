@@ -1,0 +1,14 @@
+{
+  "name": "mySuperApp",
+  "app_id": "8037f1b2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost:3000"
+    }
+  ]
+}
